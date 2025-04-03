@@ -1,5 +1,20 @@
 package com.example;
 
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URL;
+import java.security.cert.X509Certificate;
+import java.security.SecureRandom;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import no.hasmac.jsonld.document.Document;
+import no.hasmac.jsonld.document.JsonDocument;
+import no.hasmac.jsonld.loader.DocumentLoader;
+import no.hasmac.jsonld.loader.DocumentLoaderOptions;
+import no.hasmac.jsonld.JsonLdError;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.RDFParser;
@@ -7,37 +22,6 @@ import org.eclipse.rdf4j.rio.Rio;
 import org.eclipse.rdf4j.rio.helpers.StatementCollector;
 import org.eclipse.rdf4j.rio.jsonld.JSONLDParserFactory;
 import org.eclipse.rdf4j.rio.jsonld.JSONLDSettings;
-
-import com.github.jsonldjava.core.RemoteDocument;
-//import com.github.jsonldjava.core.DocumentLoader;
-import com.github.jsonldjava.core.JsonLdOptions;
-//import com.apicatalog.jsonld.document.JsonDocument;
-//import com.github.jsonldjava.core.JsonLdError;
-
-import no.hasmac.jsonld.loader.DocumentLoader;
-import no.hasmac.jsonld.document.Document;
-import jakarta.json.JsonStructure;
-import no.hasmac.jsonld.loader.DocumentLoaderOptions;
-import no.hasmac.jsonld.document.JsonDocument;
-import no.hasmac.jsonld.JsonLdError;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
-
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URI;
-import java.security.SecureRandom;
-import java.io.FileOutputStream;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
-import java.security.cert.X509Certificate;
 
 public class AppRDF4J {
 
@@ -65,7 +49,6 @@ public class AppRDF4J {
             connection.setRequestProperty("Accept", "application/ld+json");
             connection.setRequestMethod("GET");
 
-
             // Open the input stream from the connection
             try (InputStream inputStream = connection.getInputStream()) {
 
@@ -88,7 +71,6 @@ public class AppRDF4J {
                         return doc;
                     }
                  };
-
 
                 // Create a JSON-LD parser
                 RDFParser parser = new JSONLDParserFactory().getParser();

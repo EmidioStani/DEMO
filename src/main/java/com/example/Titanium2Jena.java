@@ -1,17 +1,14 @@
 package com.example;
 
-import org.apache.jena.graph.NodeFactory;
-import org.apache.jena.query.TxnType;
-import org.apache.jena.sparql.core.DatasetGraph;
 import com.apicatalog.rdf.RdfDataset;
 import com.apicatalog.rdf.RdfNQuad;
 import com.apicatalog.rdf.RdfValue;
 import com.apicatalog.rdf.RdfLiteral;
-import org.apache.jena.sparql.core.DatasetGraph;
-import org.apache.jena.sparql.core.Quad;
+import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.query.TxnType;
-import org.apache.jena.graph.Node;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.sparql.core.Quad;
 
 public class Titanium2Jena {
     public Titanium2Jena() {}
